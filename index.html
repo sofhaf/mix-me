@@ -16,7 +16,16 @@
   let angle = 0
   
   function createText() {
-    const
+    const text = document.createElement("div")
+    const content = document.createTextNode("mix-me by clicking on the flies")
+    text.appendChild(content)
+		const currentDiv = document.getElementById("div1");
+  	document.body.insertBefore(text, currentDiv)
+    text.style.position = 'absolute'
+    text.style.top = 55
+    text.style.left = innerWidth / 7
+  	text.style.color = '#213340'
+  	text.style.fontSize = 22
   }
  
   function createFire(x, y) {
@@ -39,6 +48,7 @@
     light.style.left = innerWidth / 2 - 499.5
     light.style.top = 111
 
+    createText()
  		rosie = createFire(x, y)
     document.body.appendChild(rosie)
     gwen = createFire(a, b)
