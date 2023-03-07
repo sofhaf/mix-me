@@ -5,7 +5,6 @@
   const bgColor = '#070805'
   const lightURL = 'AIight.png' 
   const glowURL = 'glow.png'
-  const loadURL = 'loading-nyan.gif'
   const mx = innerWidth * 2 / 5
   const my = 333 + Math.random()
   let rosie, gwen, lara
@@ -14,6 +13,14 @@
   let l = Math.random() * 111
   let x, y, a, b, c, d
   let angle = 0
+
+  //tracks
+  const runawayMix = 'runawarRemix.mp3' // sampled Runaway Runaway by Mars Argo https://www.youtube.com/watch?v=jbgWXRxlSuQ
+  const loveMix = 'anewkindofloveRemix.mp3' // sampled A New Kind Of Love (Demo) by Frou Frou https://www.youtube.com/watch?v=vWwIBemUwOI
+  const tommyMix = 'tommycashEdits.mp3' // sampled X-RAY (Official Video) by TOMMY CASH https://www.youtube.com/watch?v=K5kD_vYnbe4
+  																		// and WINALOTO (LIVE) by TOMMY CASH https://www.youtube.com/watch?v=C2zx2i93R44
+  const backTrack = '' //recoreded outside in Hyde Park, mid-night, Feb 6th 2023
+  const sisterMix = '' // by Aysha and Aliya, sampling/covering Ethel Cain and Bladee
   
   function createText() {
     const text = document.createElement("div")
