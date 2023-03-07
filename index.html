@@ -1,0 +1,96 @@
+<script>
+
+  //mix-me-talking-to-myself March 2023
+  
+  const bgColor = '#070805'
+  const lightURL = 'AIight.png' 
+  const glowURL = 'glow.png'
+  const loadURL = 'loading-nyan.gif'
+  const mx = innerWidth * 2 / 5
+  const my = 333 + Math.random()
+  let rosie, gwen, lara
+  let r = Math.random() * 555
+  let g = Math.random() * 333
+  let l = Math.random() * 111
+  let x, y, a, b, c, d
+  let angle = 0
+  
+  function createText() {
+    const
+  }
+ 
+  function createFire(x, y) {
+    const fly = document.createElement('img')
+    fly.src = glowURL + '#' + Math.random()
+    fly.style.position = 'absolute'
+    fly.style.width = 66
+    fly.style.left = x + 'px'
+    fly.style.top = y + 'px'
+    return fly
+  }
+
+  function setup() {
+    document.body.style.backgroundColor = bgColor
+    const light = document.createElement('img')
+    light.src = lightURL
+    document.body.appendChild(light)
+    light.style.width = 999
+    light.style.position = 'absolute'
+    light.style.left = innerWidth / 2 - 499.5
+    light.style.top = 111
+
+ 		rosie = createFire(x, y)
+    document.body.appendChild(rosie)
+    gwen = createFire(a, b)
+    document.body.appendChild(gwen)
+    lara = createFire(c, d)
+    document.body.appendChild(lara)
+  }
+
+  function are() {
+    const fps = 1000/ 19
+    setTimeout(are, fps)
+   
+    x = mx + r * Math.cos(angle * Math.PI / 180);
+    y = my + r * Math.sin(angle * Math.PI / 180);
+    rosie.style.left = x + 'px'
+    rosie.style.top = y + 'px'
+    
+    angle++
+    if (angle > 360) {
+      angle = 0 }
+  }
+  
+    function we() {
+    const fps = 1000/ 11
+    setTimeout(we, fps)
+   
+    a = (mx + Math.random()*3) + g * Math.cos(angle * Math.PI / 180);
+    b = (my + Math.random()*3) + g * Math.sin(angle * Math.PI / 180);
+    gwen.style.left = a + 'px'
+    gwen.style.top = b + 'px'
+    
+    angle++
+    if (angle > 360) {
+      angle = 0 }
+  }
+  
+    function home() {
+    const fps = 1000/ 5
+    setTimeout(home, fps)
+   
+    c = (mx - Math.random()) + l * Math.cos(angle * Math.PI / 180);
+    d = (my - Math.random()) + l * Math.sin(angle * Math.PI / 180);
+    lara.style.left = c + 'px'
+    lara.style.top = d + 'px'
+    
+    angle++
+    if (angle > 360) {
+      angle = 0 }
+  }
+  
+  window.addEventListener('load', setup)
+  window.addEventListener('load', are)
+  window.addEventListener('load', we)
+  window.addEventListener('load', home)
+</script>
