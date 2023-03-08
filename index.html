@@ -5,9 +5,10 @@
   const bgColor = '#070805'
   const lightURL = 'AIight.png' 
   const glowURL = 'glow.png'
+  const glowR = 'glowR.png'
   const mx = innerWidth * 2 / 5
   const my = 333 + Math.random()
-  let rosie, gwen, lara
+  let rosie, gwen, lara, fly
   let r = Math.random() * 555
   let g = Math.random() * 333
   let l = Math.random() * 111
@@ -15,12 +16,11 @@
   let angle = 0
 
   //tracks
-  const runawayMix = 'runawarRemix.mp3' // sampled Runaway Runaway by Mars Argo https://www.youtube.com/watch?v=jbgWXRxlSuQ
-  const loveMix = 'anewkindofloveRemix.mp3' // sampled A New Kind Of Love (Demo) by Frou Frou https://www.youtube.com/watch?v=vWwIBemUwOI
-  const tommyMix = 'tommycashEdits.mp3' // sampled X-RAY (Official Video) by TOMMY CASH https://www.youtube.com/watch?v=K5kD_vYnbe4
-  																		// and WINALOTO (LIVE) by TOMMY CASH https://www.youtube.com/watch?v=C2zx2i93R44
-  const backTrack = 'outside.mp3' //recoreded outside in Hyde Park, mid-night, Feb 6th 2023
-  const sisterMix = '2:20:23 whpk(1).mp3' // by Aysha and Aliya, sampling/covering Ethel Cain and Bladee
+  const runaway = new Audio('runawayRemix.mp3') // sampled Runaway Runaway by Mars Argo https://www.youtube.com/watch?v=jbgWXRxlSuQ
+  const love = new Audio('anewkindofloveRemix.mp3') // sampled A New Kind Of Love (Demo) by Frou Frou https://www.youtube.com/watch?v=vWwIBemUwOI
+  const tommy = new Audio('tommycashEdits.mp3') // sampled X-RAY (Official Video) by TOMMY CASH https://www.youtube.com/watch?v=K5kD_vYnbe4 and WINALOTO (LIVE) by TOMMY CASH https://www.youtube.com/watch?v=C2zx2i93R44
+  const outside = new Audio('outside.mp3') //recoreded outside in Hyde Park, mid-night, Feb 6th 2023
+  const sisters = new Audio('2:20:23 whpk (1).mp3') // by Aysha and Aliya, sampling/covering Ethel Cain and Bladee
   
   function createText() {
     const text = document.createElement("div")
