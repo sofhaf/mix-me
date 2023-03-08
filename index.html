@@ -8,7 +8,7 @@
   const glowR = 'glowR.png'
   const mx = innerWidth * 2 / 5
   const my = 333 + Math.random()
-  let rosie, gwen, lara, fly
+  let rosie, gwen, lara
   let r = Math.random() * 555
   let g = Math.random() * 333
   let l = Math.random() * 111
@@ -34,6 +34,7 @@
   	text.style.color = '#213340'
   	text.style.fontSize = 22
   }
+  
  
   function createFire(x, y) {
     const fly = document.createElement('img')
@@ -45,6 +46,36 @@
     return fly
   }
 
+    function playRunaway() {
+    if (runaway.paused) {
+      runaway.play()
+      rosie.src = glowR
+    } else {
+      runaway.pause()
+      rosie.src = glowURL
+    }
+  }
+  
+    function playLove() {
+    if (love.paused) {
+      love.play()
+      gwen.src = glowR
+    } else {
+      love.pause()
+      gwen.src = glowURL
+    }
+  }
+  
+    function playTommy() {
+    if (tommy.paused) {
+      tommy.play()
+      lara.src = glowR
+    } else {
+      tommy.pause()
+      lara.src = glowURL
+    }
+  }
+  
   function setup() {
     document.body.style.backgroundColor = bgColor
     const light = document.createElement('img')
@@ -62,6 +93,18 @@
     document.body.appendChild(gwen)
     lara = createFire(c, d)
     document.body.appendChild(lara)
+    
+    rosie.onclick = function() {
+      playRunaway()
+    }
+    
+    gwen.onclick = function() {
+      playLove()
+    }
+    
+    lara.onclick = function() {
+      playTommy()
+    }
   }
 
   function are() {
@@ -104,10 +147,6 @@
     angle++
     if (angle > 360) {
       angle = 0 }
-  }
-  
-  function playRosie() {
-   
   }
   
   window.addEventListener('load', setup)
