@@ -1,18 +1,17 @@
 <script>
-
   //mix-me-talking-to-myself March 2023
-  
+
   const bgColor = '#070805'
-  const lightURL = 'AIight.png' 
+  const lightURL = 'AIight.png'
   const glowURL = 'glow.png'
   const glowR = 'glowR.png'
   const mx = innerWidth * 2 / 5
   const my = 333 + Math.random()
-  let rosie, gwen, lara
+  let rosie, gwen, lara, sister
   let r = Math.random() * 555
   let g = Math.random() * 333
   let l = Math.random() * 111
-  let x, y, a, b, c, d
+  let x, y, a, b, c, d, e, f
   let angle = 0
 
   //tracks
@@ -21,21 +20,21 @@
   const tommy = new Audio('tommycashEdits.mp3') // sampled X-RAY (Official Video) by TOMMY CASH https://www.youtube.com/watch?v=K5kD_vYnbe4 and WINALOTO (LIVE) by TOMMY CASH https://www.youtube.com/watch?v=C2zx2i93R44
   const outside = new Audio('outside.mp3') //recoreded outside in Hyde Park, mid-night, Feb 6th 2023
   const sisters = new Audio('2:20:23 whpk (1).mp3') // by Aysha and Aliya, sampling/covering Ethel Cain and Bladee
-  
+
   function createText() {
     const text = document.createElement("div")
     const content = document.createTextNode("mix-me by clicking on the flies")
     text.appendChild(content)
-		const currentDiv = document.getElementById("div1")
-  	document.body.insertBefore(text, currentDiv)
+    const currentDiv = document.getElementById("div1")
+    document.body.insertBefore(text, currentDiv)
     text.style.position = 'absolute'
     text.style.top = 55
     text.style.left = innerWidth / 7
-  	text.style.color = '#213340'
-  	text.style.fontSize = 22
+    text.style.color = '#213340'
+    text.style.fontSize = 22
   }
-  
- 
+
+
   function createFire(x, y) {
     const fly = document.createElement('img')
     fly.src = glowURL + '#' + Math.random()
@@ -46,7 +45,7 @@
     return fly
   }
 
-    function playRunaway() {
+  function playRunaway() {
     if (runaway.paused) {
       runaway.play()
       rosie.src = glowR
@@ -55,8 +54,8 @@
       rosie.src = glowURL
     }
   }
-  
-    function playLove() {
+
+  function playLove() {
     if (love.paused) {
       love.play()
       gwen.src = glowR
@@ -65,8 +64,8 @@
       gwen.src = glowURL
     }
   }
-  
-    function playTommy() {
+
+  function playTommy() {
     if (tommy.paused) {
       tommy.play()
       lara.src = glowR
@@ -75,7 +74,17 @@
       lara.src = glowURL
     }
   }
-  
+
+  function playSisters() {
+    if (sisters.paused) {
+      sisters.play()
+      sister.src = glowR
+    } else {
+      sisters.pause()
+      sister.src = glowURL
+    }
+  }
+
   function setup() {
     document.body.style.backgroundColor = bgColor
     const light = document.createElement('img')
@@ -87,70 +96,94 @@
     light.style.top = 111
 
     createText()
- 		rosie = createFire(x, y)
+    outside.play()
+    outside.loop = 'true'
+    rosie = createFire(x, y)
     document.body.appendChild(rosie)
     gwen = createFire(a, b)
     document.body.appendChild(gwen)
     lara = createFire(c, d)
     document.body.appendChild(lara)
-    
+    sister = createFire(e, f)
+    document.body.appendChild(sister)
+
     rosie.onclick = function() {
       playRunaway()
     }
-    
     gwen.onclick = function() {
       playLove()
     }
-    
     lara.onclick = function() {
       playTommy()
+    }
+    sister.onclick = function() {
+      playSisters()
     }
   }
 
   function are() {
-    const fps = 1000/ 19
+    const fps = 1000 / 19
     setTimeout(are, fps)
-   
+
     x = mx + r * Math.cos(angle * Math.PI / 180);
     y = my + r * Math.sin(angle * Math.PI / 180);
     rosie.style.left = x + 'px'
     rosie.style.top = y + 'px'
-    
+
     angle++
     if (angle > 360) {
-      angle = 0 }
+      angle = 0
+    }
   }
-  
-    function we() {
-    const fps = 1000/ 11
+
+  function we() {
+    const fps = 1000 / 11
     setTimeout(we, fps)
-   
-    a = (mx + Math.random()*3) + g * Math.cos(angle * Math.PI / 180);
-    b = (my + Math.random()*3) + g * Math.sin(angle * Math.PI / 180);
+
+    a = (mx + Math.random() * 3) + g * Math.cos(angle * Math.PI / 180);
+    b = (my + Math.random() * 3) + g * Math.sin(angle * Math.PI / 180);
     gwen.style.left = a + 'px'
     gwen.style.top = b + 'px'
-    
+
     angle++
     if (angle > 360) {
-      angle = 0 }
+      angle = 0
+    }
   }
-  
-    function home() {
-    const fps = 1000/ 5
+
+  function home() {
+    const fps = 1000 / 5
     setTimeout(home, fps)
-   
+
     c = (mx - Math.random()) + l * Math.cos(angle * Math.PI / 180);
     d = (my - Math.random()) + l * Math.sin(angle * Math.PI / 180);
     lara.style.left = c + 'px'
     lara.style.top = d + 'px'
-    
+
     angle++
     if (angle > 360) {
-      angle = 0 }
+      angle = 0
+    }
   }
-  
+
+  function no() {
+    const fps = 1000 / 5
+    setTimeout(no, fps)
+
+    e = 333 + l * Math.cos(angle * Math.PI / 180);
+    f = 111 + l * Math.sin(angle * Math.PI / 180);
+    sister.style.left = e + 'px'
+    sister.style.top = f + 'px'
+
+    angle++
+    if (angle > 360) {
+      angle = 0
+    }
+  }
+
   window.addEventListener('load', setup)
   window.addEventListener('load', are)
   window.addEventListener('load', we)
   window.addEventListener('load', home)
+  window.addEventListener('load', no)
 </script>
